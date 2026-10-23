@@ -14,4 +14,6 @@ Writes `CHANGELOG.md` with Added, Fixed, Changed and Removed sections from commi
 
 The included unit tests use actual temporary Git repositories. Run `python3 -m unittest discover -s tests -v`.
 
-The sample is generated from a **local fixture**, not a public GitHub repo. A real-world public repository demonstration remains to be added before the bounty's corresponding acceptance criterion is met. No payment is guaranteed.
+The real-public-repository demonstration is in `real_repo_demo.sh`. It clones the public [pallets/itsdangerous](https://github.com/pallets/itsdangerous) repository, runs the generator against that Git history, checks that the generated changelog is nonempty and properly headed, and prints the output. The GitHub Actions workflow `.github/workflows/changelog-real-repo-demo.yml` executes both unit tests and this public-repository demonstration; its successful run uploads `CHANGELOG.real-repo.md` and `provenance.txt` as the `changelog-real-public-repo` artifact. The fixture-based `sample_CHANGELOG.md` is illustrative, not a claim to contain public-repository history.
+
+The demonstration only reads the upstream repository and does not modify it. Acceptance and payout depend on the bounty maintainers.
