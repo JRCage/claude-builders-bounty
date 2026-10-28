@@ -106,13 +106,13 @@ Recommended `package.json` scripts (add when bootstrapping):
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "vitest run",
     "db:migrate": "tsx src/server/db/migrate.ts"
   }
 }
 ```
-**Important:** `next lint` was removed from newer Next.js versions; for a Next.js 15 project, prefer `"lint": "eslint ."` when the installed release does not support `next lint`. Configure Vitest and tsx dependencies before running these scripts, rather than claiming missing tools passed. When using native built-in Node tests, use `node --test` instead.
+**Important:** Use the configured ESLint CLI, not `next lint`, which is unavailable in newer Next.js releases. Install and configure Vitest and tsx dependencies before running the example scripts. If using built-in Node tests instead, replace the test script with `node --test`.
 
 `DATABASE_URL=file:./data/app.db` and `SESSION_SECRET=` belong in `.env.example` as placeholders only. Generate real secrets outside version control. In CI, use a unique temporary database. For tests that mutate schema, provision the database, migrate, and dispose per suite.
 
